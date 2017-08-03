@@ -4,12 +4,8 @@ const config = require('./config')
 
 const knexConfig = {
   client: 'mysql',
-  connection: config.database,
-  pool: {
-    min: config.database.pool.min,
-    max: config.database.pool.max,
-    refreshIdle: false
-  }
+  connection: config.get('database').options,
+  pool: config.get('database').pool
 }
 
 module.exports = {

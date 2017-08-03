@@ -1,0 +1,26 @@
+{
+    "database": {
+        "options": {
+            "host": "178.62.251.26",
+            "port": "6606",
+            "database": "hyper",
+            "user": "root",
+            "password": "hyperdev"
+        }
+    },
+    "seneca": {
+        "options": {
+            "timeout": 60000,
+            "log": {
+                "level": "fatal"
+            },
+            "debug": {
+                "short_logs": true
+            }
+        },
+        "client": {
+            "type": "amqp",
+            "url": "amqp://178.62.251.26:5672/"
+        }
+    }
+}

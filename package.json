@@ -1,7 +1,7 @@
 {
-  "name": "hyper-worker-boilerplate",
+  "name": "hyper-worker-oauth2",
   "version": "1.0.0",
-  "description": "generic backend-worker",
+  "description": "oauth2 backend-worker",
   "main": "index.js",
   "scripts": {
     "start": "NODE_PATH=. node index.js",
@@ -14,11 +14,14 @@
     "bookshelf": "^0.10.3",
     "bookshelf-modelbase": "^2.10.4",
     "bunyan": "^1.8.10",
-    "hyper-queue": "git+https://github.com/Cloudoki/hyper-queue.git",
+    "convict": "^4.0.0",
+    "hyper-error": "git+https://github.com/Cloudoki/hyper-error.git",
     "jsonwebtoken": "^7.4.1",
     "knex": "<0.13.0",
     "mysql": "^2.13.0",
     "oauth2-server": "^3.0.0-b4",
-    "oauth2orize": "^1.8.0"
+    "oauth2orize": "^1.8.0",
+    "seneca": "^3.4.1",
+    "seneca-amqp-transport": "^2.2.0"
   }
 }

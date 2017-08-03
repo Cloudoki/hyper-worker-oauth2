@@ -1,15 +1,19 @@
 'use strict'
 
+const seneca = require('seneca')()
+    .use('seneca-amqp-transport');
+
 const config = require('config');
-const log = require('log');
-const mq = require('hyper-queue');
+const log = require('util/logger');
 
-const placeholder = require('lib/consumers/placeholder');
+const roles = [
+    require('lib/listeners/client')
+];
 
-mq.logger(log);
+for (let role of roles) {
+    for (let listener of role.listeners) {
+        seneca.add(listener.pin, listener.handler);
+    }
+}
 
-mq.broker(config.queue.uri, config.queue.options, config.queue.reconnect);
-
-mq.registerCconsumers(placeholder.consumers);
-
-mq.connect();
+seneca.listen(config.get('seneca').client);
